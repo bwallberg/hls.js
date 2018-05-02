@@ -75,8 +75,8 @@ class SubtitleStreamController extends TaskLoop {
   // If something goes wrong, procede to next frag, if we were processing one.
   onError (data) {
     let frag = data.frag;
-    // don't handle frag error not related to subtitle fragment
-    if (frag && frag.type !== 'subtitle') {
+    // don't handle error not related to subtitle fragment
+    if (!frag || frag.type !== 'subtitle') {
       return;
     }
 
